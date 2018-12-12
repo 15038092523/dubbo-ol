@@ -10,9 +10,14 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<dubbo:application name="product-web" />
-	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
-	<dubbo:protocol name="dubbo" port="20880" threadpool="fixed" />
+	<dubbo:registry protocol="zookeeper"  address="127.0.0.1:2181"
+		check="false" />
+	<dubbo:protocol name="dubbo"  threadpool="fixed" />
 
-    <dubbo:reference id="typeService" interface="com.cmos.service.TypeService" /> 
-    <dubbo:reference id="supplierService" interface="com.cmos.service.SupplierService" />
+	<dubbo:reference id="typeService" interface="com.cmos.service.TypeService"
+		check="false" />
+	<dubbo:reference id="supplierService" interface="com.cmos.service.SupplierService"
+		check="false" />
+	<dubbo:reference id="goodsService" interface="com.cmos.service.GoodsService"
+		check="false" version="1.0.0"/>
 </beans>
